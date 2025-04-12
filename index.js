@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 require("dotenv").config();
 const dbConnect = require("./src/config/dbConnect");
+const authRoutes = require("./src/routes/authRoutes");
 
 dbConnect();
 
@@ -10,10 +11,7 @@ dbConnect();
 app.use(express.json());
 
 // Routes
-app.get("/", (req, res) => {
-  res.send({ name: "Bangladesh", new: process.env.hello });
-});
-
+app.use("/api/auth", authRoutes);
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
