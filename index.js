@@ -5,7 +5,7 @@ require("dotenv").config();
 const dbConnect = require("./src/config/dbConnect");
 const authRoutes = require("./src/routes/authRoutes");
 const userRoutes = require("./src/routes/userRoutes");
-
+const jobRoutes = require("./src/routes/jobRoutes");
 // Connect with database
 dbConnect();
 
@@ -15,6 +15,7 @@ app.use(express.json());
 // Routes
 app.use("/api/auth", authRoutes); //Login and Registration Route
 app.use("/api/users", userRoutes); //User Route
+app.use("/api/employees", jobRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to HireMe Server");

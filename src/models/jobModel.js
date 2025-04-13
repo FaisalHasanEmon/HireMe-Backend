@@ -1,40 +1,47 @@
 const mongoose = require("mongoose");
 
-const jobSchema = new mongoose.Schema({
-  company_name: {
-    type: String,
-    require: true,
+const jobSchema = new mongoose.Schema(
+  {
+    company_name: {
+      type: String,
+      required: true,
+    },
+    employee_name: {
+      type: String,
+      required: true,
+    },
+    employee_email: {
+      type: String,
+      required: true,
+    },
+    employee_id: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    salary: {
+      type: Number,
+      required: true,
+    },
+    current_status: {
+      type: String,
+      required: true,
+      enum: ["accepting", "not_accepting"],
+    },
   },
-  employee_name: {
-    type: String,
-    require: true,
-  },
-  employee_email: {
-    type: String,
-    require: true,
-  },
-  employee_id: {
-    type: String,
-    require: true,
-    unique: true,
-  },
-  title: {
-    type: String,
-    require: true,
-  },
-  description: {
-    type: String,
-    require: true,
-  },
-  location: {
-    type: String,
-    require: true,
-  },
-  salary: {
-    min: { type: Number, require: true },
-    max: { type: Number, require: true },
-    require: true,
-  },
-});
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Job", jobSchema);
