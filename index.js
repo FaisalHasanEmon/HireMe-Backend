@@ -14,7 +14,11 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes); //Login and Registration Route
-app.use("/api/user", userRoutes); //User Route
+app.use("/api/users", userRoutes); //User Route
+
+app.get("/", (req, res) => {
+  res.send("Welcome to HireMe Server");
+});
 
 // Start the server
 app.listen(port, () => {
