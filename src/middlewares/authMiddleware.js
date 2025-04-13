@@ -21,6 +21,8 @@ const verifyToken = (req, res, next) => {
       res.status(400).json({ message: "Token is not valid" });
       console.log(err);
     }
+  } else {
+    return res.status(401).json({ message: "No token, authorization denied" });
   }
 };
 
