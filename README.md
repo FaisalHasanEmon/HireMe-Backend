@@ -44,6 +44,95 @@ This approach ensures both secure authentication and role-based access control (
 
 - Postman Documentation: [https://documenter.getpostman.com/view/43995790/2sB2ca6zhk#3e0d606c-7aa3-43f5-9b35-2b4b2a6ed8f6](https://documenter.getpostman.com/view/43995790/2sB2ca6zhk#3e0d606c-7aa3-43f5-9b35-2b4b2a6ed8f6)
 
+## API Endpoints
+
+### User Registration
+
+- Method POST
+
+```
+http://localhost:5000/api/auth/register
+```
+
+- Request Body
+  ```
+  {
+      "name":"userName",
+      "email":"user@gmail.com",
+      "password":"userPassword",
+      "role":"admin/employee/job_seekers"
+  }
+  ```
+- Return
+  ```
+  {
+      "message": "User registered with email user@gmail.com"
+  }
+  ```
+
+### User Login
+
+- Method POST
+  ```
+  http://localhost:5000/api/auth/login
+  ```
+- Request Body
+  ```
+  {
+      "email":"userEmail",
+      "password":"userPassword",
+  }
+  ```
+- **Return [[Demo Token]]**
+  ```
+  {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmMyNDczMzljNGFiMjE0ZjcyY2EwNSIsImVtYWlsIjoiam9iX3NlZWtlckBnbWFpbC5jb20iLCJyb2xlIjoiam9iX3NlZWtlciIsImlhdCI6MTc0NDY0NjI1NywiZXhwIjoxNzQ0NjQ5ODU3fQ.wwQGcREtwKvbgsil-_bp45HXwgQBMdH2OcoiPfXnsa8"
+  }
+  ```
+
+### Employee Add Job API
+
+- Method POST
+  ```bash
+   http://localhost:5000/api/employees/addJob
+  ```
+- Request Body
+  ```bash
+  {
+      "company_name": "TechNova Solutions",
+      "title": "Frontend Developer",
+      "description": "Responsible for developing and maintaining user-facing features for web applications using React and modern JavaScript frameworks.",
+      "location": "San Francisco, CA",
+      "salary": 95000,
+      "current_status": "accepting"
+  }
+  ```
+- **Return**
+  ```
+  {
+      "message": "New Job Added to Database"
+  }
+  ```
+
+### Employee Add Job API
+
+- Method POST
+  ```bash
+   http://localhost:5000/api/candidates/applyJob
+  ```
+- Request Body [This is a valid jobId]
+  ```bash
+  {
+      "jobId":"67fd2ee20453864d1d86e7ed"
+  }
+  ```
+- **Return**
+  ```
+  {
+      "message": "Application Successfully Submitted"
+  }
+  ```
+
 ## Usage
 
 - Register as a **Admin**, **Job Seeker** or **Employer**.
