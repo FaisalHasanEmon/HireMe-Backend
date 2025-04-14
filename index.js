@@ -15,7 +15,6 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes); //Login and Registration Route
-app.use("/api/users", userRoutes); //User Route
 app.use("/api/employees", jobRoutes); //Employees Route
 app.use("/api/candidates", postedJobsRoutes); //candidates Route
 
