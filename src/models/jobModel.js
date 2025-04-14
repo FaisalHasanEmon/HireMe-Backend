@@ -17,7 +17,6 @@ const jobSchema = new mongoose.Schema(
     employee_id: {
       type: String,
       required: true,
-      unique: true,
     },
     title: {
       type: String,
