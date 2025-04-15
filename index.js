@@ -6,6 +6,7 @@ const dbConnect = require("./src/config/dbConnect");
 const authRoutes = require("./src/routes/authRoutes");
 const jobRoutes = require("./src/routes/jobRoutes");
 const postedJobsRoutes = require("./src/routes/postedJobsRoutes");
+const adminRoutes = require("./src/routes/adminRoutes");
 // Connect with database
 dbConnect();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes); //Login and Registration Route
 app.use("/api/employees", jobRoutes); //Employees Route
 app.use("/api/candidates", postedJobsRoutes); //candidates Route
+app.use("/api/admin", adminRoutes); //admin Route
 
 app.get("/", (req, res) => {
   res.send("Welcome to HireMe Server");

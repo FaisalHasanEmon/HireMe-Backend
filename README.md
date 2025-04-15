@@ -50,9 +50,9 @@ This approach ensures both secure authentication and role-based access control (
 
 - Method POST
 
-```
-http://localhost:5000/api/auth/register
-```
+  ```bash
+  http://localhost:5000/api/auth/register
+  ```
 
 - Request Body
   ```
@@ -88,6 +88,100 @@ http://localhost:5000/api/auth/register
   {
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmMyNDczMzljNGFiMjE0ZjcyY2EwNSIsImVtYWlsIjoiam9iX3NlZWtlckBnbWFpbC5jb20iLCJyb2xlIjoiam9iX3NlZWtlciIsImlhdCI6MTc0NDY0NjI1NywiZXhwIjoxNzQ0NjQ5ODU3fQ.wwQGcREtwKvbgsil-_bp45HXwgQBMdH2OcoiPfXnsa8"
   }
+  ```
+
+### Admin Get All Users
+
+- Method GET
+  ```bash
+   http://localhost:5000/api/admin/allUsers
+  ```
+- To Get All Users Admin token must needed as it is a private and a protected route. To get the token admin have to login first. admin account and password:
+  ```bash
+  email: admin@gmail.com
+  password: admin
+  ```
+- Return
+  ```bash
+    [
+        {
+            "_id": "67fc241239c4ab214f72ca01",
+            "name": "employee",
+            "email": "employee@gmail.com",
+            "password": "$2b$10$u0opIdsDEZNDmtuf7YBcD.y8vf3iR9FZBSEC9/tLkJ7DshJZrutfe",
+            "role": "employee",
+            "createdAt": "2025-04-13T20:52:34.207Z",
+            "updatedAt": "2025-04-13T20:52:34.207Z",
+            "__v": 0
+        },
+        {
+            "_id": "67fc244239c4ab214f72ca03",
+            "name": "admin",
+            "email": "admin@gmail.com",
+            "password": "$2b$10$bQuI.JiShB8JUqXByBbxi.Tm1xM3it4jwPf00Xak18W22gT1ETk1O",
+            "role": "admin",
+            "createdAt": "2025-04-13T20:53:22.128Z",
+            "updatedAt": "2025-04-13T20:53:22.128Z",
+            "__v": 0
+        },
+        {
+            "_id": "67fc247339c4ab214f72ca05",
+            "name": "job_seeker",
+            "email": "job_seeker@gmail.com",
+            "password": "$2b$10$/Dx4/aH2Gm8iJ63P3gKxieO8o0IQZjQb9vRFjhzlAVclvQRoB2DC.",
+            "role": "job_seeker",
+            "createdAt": "2025-04-13T20:54:11.280Z",
+            "updatedAt": "2025-04-13T20:54:11.280Z",
+            "__v": 0
+        }
+    ]
+  ```
+
+### Admin Get All Users
+
+- Method GET
+  ```bash
+   http://localhost:5000/api/admin/allJobs
+  ```
+- To Get All Users Admin token must needed as it is a private and a protected route. To get the token admin have to login first. admin account and password:
+  ```bash
+  email: admin@gmail.com
+  password: admin
+  ```
+- Return
+  ```bash
+    [
+        {
+            "_id": "67fce314d0d4a9249d492d36",
+            "company_name": "BrightByte Labs",
+            "employee_name": "employee",
+            "employee_email": "employee@gmail.com",
+            "employee_id": "67fc241239c4ab214f72ca01",
+            "title": "Frontend Developer",
+            "description": "Develop and optimize user interfaces for web applications, ensuring seamless cross-browser compatibility and responsive design.",
+            "location": "Austin, TX",
+            "salary": 72000,
+            "current_status": "accepting",
+            "createdAt": "2025-04-14T10:27:32.496Z",
+            "updatedAt": "2025-04-14T10:27:32.496Z",
+            "__v": 0
+        },
+        {
+            "_id": "67fd2ee20453864d1d86e7ed",
+            "company_name": "TechNova Solutions",
+            "employee_name": "abdul",
+            "employee_email": "abdul@abdul",
+            "employee_id": "67fd2c4c46b376ba04c11fe7",
+            "title": "Frontend Developer",
+            "description": "Responsible for developing and maintaining user-facing features for web applications using React and modern JavaScript frameworks.",
+            "location": "San Francisco, CA",
+            "salary": 95000,
+            "current_status": "accepting",
+            "createdAt": "2025-04-14T15:50:58.399Z",
+            "updatedAt": "2025-04-14T15:50:58.399Z",
+            "__v": 0
+        }
+    ]
   ```
 
 ### Employee Add Job API
