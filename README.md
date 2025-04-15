@@ -137,7 +137,7 @@ This approach ensures both secure authentication and role-based access control (
     ]
   ```
 
-### Admin Get All Users
+### Admin Get All Jobs
 
 - Method GET
   ```bash
